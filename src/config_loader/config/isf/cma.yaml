@@ -1,0 +1,38 @@
+defaults:
+  - _self_
+  - visualize   : default # box
+  - verbose     : default
+  - gripper_pose: default
+  - object_pose : default
+  - save        : default
+
+tag:
+method_name : "cma"
+# ----
+num_fingertip_surface_points : 25
+# ----
+gripper_normal: [0, 1, 0]
+hand_plane_z  : [0, 0, 1]
+# ----
+alpha         : 0.1 # 0.1 # 0.0 # normal
+beta          : 0.8 # 0.5 # 1 # (== omega) approach
+# ----
+gamma         : 0 # num_correspondence
+min_num_corres: 4
+# ----
+eta: 0
+# ----
+dtheta0       : 0.04
+# ----
+delta_d_est_init : 0.0
+# ------------------------------
+d_min             : 0.011 # geomの初期位置依存
+d_max             : 0.091 # geomの初期位置依存
+d0                : 0.091 # geomの初期位置依存
+# ------------------------------
+max_iter : 100
+max_ipfo_count : 100
+# ------------------------------
+delta_e : 1e-4 # IPFO
+epsilon : 1e-4 # ISF
+# ------------------------------

@@ -1,0 +1,24 @@
+<!-- main_model.xml -->
+<mujoco model="main_model">
+    <asset>
+        <!-- メインモデルで使うテクスチャ・マテリアルなどの定義 -->
+        <texture name="checkered" type="cube" width="128" height="128" builtin="checker"/>
+
+        <!-- サブモデルでも同じアセット定義を使いたい場合は、サブモデル内ではなくここに一括定義し、
+             sub_model.xml から参照することもできます。 -->
+    </asset>
+
+    <worldbody>
+        <body name="main_body" pos="0 0 0">
+            <geom name="floor" type="plane" size="10 10 1"/>
+            <camera name="cam" mode="trackcom" pos="0 -5 2" euler="0 0 0"/>
+        </body>
+
+        <!-- sub_model.xml の中で <body> や <joint> などが定義されている場合、それをここで読み込む -->
+        <include file="sub_model.xml"/>
+    </worldbody>
+
+    <actuator>
+        <!-- メインモデル側のアクチュエータ定義など -->
+    </actuator>
+</mujoco>

@@ -1,0 +1,21 @@
+defaults:
+  - _self_
+  - load          : default
+  - pre_prosessing: default
+  - generate      : default
+# ------------------------------------------
+model_name: "035_power_drill"
+# ----
+n_approach: [1, 1 , 0]
+# ----
+gripper_pose:
+  translation        : [0, 0, 0]
+  euler_angle_degree : [180, -45, 45]
+# ----
+contact_plane:
+  # ----
+  position_origin   : [0, 0, -0.02]
+  normal_direction_z: [0, 0, -1]
+  # ----
+  d1 : 0.018   # 手平面からの許容距離
+  d2 : 0.15    # 手平面原点からの許容距離

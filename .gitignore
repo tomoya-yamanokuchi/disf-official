@@ -1,0 +1,13 @@
+**/__pycache__/
+**/packages/
+*.egg-info/
+*.npy
+*.pyc
+*.zip
+*.dat
+*.pkl
+*.pyl
+outcmaes/
+models/
+data/
+.vscode/

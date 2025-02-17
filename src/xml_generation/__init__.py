@@ -1,0 +1,1 @@
+from .generate_mujoco_grasping_scene_with_ycb import generate_mujoco_grasping_scene_with_ycb

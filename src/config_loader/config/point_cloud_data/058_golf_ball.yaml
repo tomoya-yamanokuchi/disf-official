@@ -1,0 +1,22 @@
+defaults:
+  - _self_
+  - load          : default
+  - pre_prosessing: default
+  - generate      : default
+# ------------------------------------------
+model_name: "058_golf_ball"
+# ----
+n_approach: [1, 0, -1]
+# ----
+gripper_pose:
+  translation        : [0, 0, 0]
+  euler_angle_degree : [180, 0, 0] # best
+  # euler_angle_degree : [-170, 0, 0] # best
+# ----
+contact_plane:
+  # ----
+  position_origin   : [0, 0, 0]
+  normal_direction_z: [1, 0, 0]
+  # ----
+  d1 : 0.018   # 手平面からの許容距離
+  d2 : 0.15    # 手平面原点からの許容距離
