@@ -62,7 +62,7 @@ cd ~/disf/scripts/ & ./pre_convex_shape_approximation.sh
 
 We use [MuJoCo] as simulartor and use Franka Emika Panda environment from [MuJoCo Menagerie] for the grasp experiments.
 
-You can try the grasp planning by `DISF`, `ISF` or `CMA`:
+You can try the grasp planning by `DISF`, `VISF` or `CMA-ES`:
 
 ```bash
 python ~/disf/test/disf_grasp.py
