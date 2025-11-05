@@ -12,6 +12,6 @@ $DEVICE_ARGS \
 -e XAUTHORITY=/home/$(id -un)/.Xauthority \
 -v $HOME/.Xauthority:/home/$(id -un)/.Xauthority \
 -v /tmp/.X11-unix:/tmp/.X11-unix \
--v /home/$USER/disf:/home/cudagl/disf \
+-v /home/$USER/disf_ras:/home/cudagl/disf_ras \
 -v /home/$USER/data:/home/cudagl/data \
-docker_disf:latest bash -c "cd /home/cudagl/disf && exec bash"
+docker_disf_ras:latest bash -c "cd /home/cudagl/disf_ras && exec bash"

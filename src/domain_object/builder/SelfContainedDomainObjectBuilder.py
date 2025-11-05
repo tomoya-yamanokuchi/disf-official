@@ -18,10 +18,21 @@ class SelfContainedDomainObjectBuilder:
     def get_domain_object(self):
         return self
 
+    def set_current_working_dir(self):
+        import os
+        import pathlib
+        self.cwd_path = pathlib.Path(os.getcwd())
+
     # ===================== Mujoco Env =====================
     def build_model(self):
         import mujoco
-        self.model = mujoco.MjModel.from_xml_path(self.config_env.xml)
+        env_xml_path = self.cwd_path.joinpath(self.config_env.xml)
+
+        print("-----------------")
+        print("env_xml_path = ", env_xml_path)
+        print("-----------------")
+
+        self.model = mujoco.MjModel.from_xml_path(str(env_xml_path))
         self.model.opt.timestep = self.config_env.option.timestep # Override the simulation timestep.
 
     def buid_data(self):
@@ -215,10 +226,10 @@ class SelfContainedDomainObjectBuilder:
         n_app_unnorm = np.array(self.config_pc_data.n_approach)
         self.n_app   = normalize_vector(n_app_unnorm)
         # ------------------------------------------------------
-        self.output_file  = self.config_pc_data.generate.output_file
-        self.dir_path     = self.config_pc_data.load.dir_path
-        self.suffix_fname = self.config_pc_data.load.suffix_fname
-        self.model_name   = self.config_pc_data.model_name
+        self.output_file                      = self.config_pc_data.generate.output_file
+        self.pc_data_dir_path_relative_to_cwd = self.config_pc_data.load.dir_path_relative_to_cwd
+        self.suffix_fname                     = self.config_pc_data.load.suffix_fname
+        self.model_name                       = self.config_pc_data.model_name
         # -------------------------------------------------------
         from service import create_directory_if_not_exists
         self.results_save_dir = os.path.join(self.save_dir, self.method_name, self.model_name)
@@ -227,17 +238,23 @@ class SelfContainedDomainObjectBuilder:
     def build_ycb_xml_scene_file(self, object_name: str):
         from xml_generation import generate_mujoco_grasping_scene_with_ycb
         # ----
+        abs_base_path_for_xml = self.cwd_path.joinpath(self.pc_data_dir_path_relative_to_cwd)
+
         generate_mujoco_grasping_scene_with_ycb(
             output_file = self.output_file,
             object_name = object_name, # <-- dynamic !!!!!
-            base_path   = self.dir_path,
+            base_path   = str(abs_base_path_for_xml),
         )
 
     def build_ycb_data_point_cloud(self):
         import open3d as o3d
         # ---
-        file_path = os.path.join(self.dir_path, self.model_name, self.suffix_fname)
-        self.point_cloud = o3d.io.read_point_cloud(file_path)
+        file_path = self.cwd_path.joinpath(
+            self.pc_data_dir_path_relative_to_cwd,
+            self.model_name, self.suffix_fname
+        )
+
+        self.point_cloud = o3d.io.read_point_cloud(str(file_path))
         self.point_cloud = self.point_cloud.voxel_down_sample(
             voxel_size = self.config_pc_data.pre_prosessing.voxel_down_sample_size
         )

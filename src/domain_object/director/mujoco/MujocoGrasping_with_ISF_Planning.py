@@ -10,9 +10,10 @@ class MujocoGrasping_with_ISF_Planning:
             object_name    : str = None,
             isf_model      : str = None,
         ):
+        builder.set_current_working_dir()
         builder = ISF_Planning_With_YCB_Object_Director.construct(builder, object_name, isf_model)
         builder = MujocoArmEnvDirector.construct(builder, env_config_name)
-        builder.save_configs()
+        # builder.save_configs()
         # ---
         return builder.get_domain_object()
 

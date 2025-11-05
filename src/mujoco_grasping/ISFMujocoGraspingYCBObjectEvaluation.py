@@ -28,6 +28,6 @@ class ISFMujocoGraspingYCBObjectEvaluation:
             isf_planning = domain_object.isf_planning
             isf_results  = isf_planning.run(return_all=True)
             # --------------------------------
-            # grasp = MujocoGraspingArmGraspViaPregrasp(domain_object)
-            # grasp.execute(isf_results)
+            grasp = MujocoGraspingArmGraspViaPregrasp(domain_object)
+            grasp.execute(isf_results)
         print(f"-------------------------------")

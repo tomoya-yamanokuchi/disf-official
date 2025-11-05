@@ -8,7 +8,8 @@ defaults:
 env_name  : "panda_arm"
 hand_name : "panda_hand"
 
-xml : "/home/cudagl/disf/assets/franka_emika_panda_grasp/generated_scene_pretty.xml"
+xml : "./assets/franka_emika_panda_grasp/generated_scene_pretty.xml"
+# xml : "/home/cudagl/disf/assets/franka_emika_panda_grasp/generated_scene_pretty.xml"
 
 end_effector_name      : "palm"
 end_effector_body_name : "palm"
