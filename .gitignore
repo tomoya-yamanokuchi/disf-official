@@ -9,5 +9,4 @@
 *.pyl
 outcmaes/
 models/
-data/
 .vscode/
