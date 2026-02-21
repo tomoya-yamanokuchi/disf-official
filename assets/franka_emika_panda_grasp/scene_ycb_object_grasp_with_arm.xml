@@ -1,16 +1,16 @@
 <mujoco model="panda scene">
   <include file="panda_arm_with_hand.xml"/>
   <!--  -->
-  <!-- <include file="/home/cudagl/padova2ndvisit/ycb-tools/models/ycb/011_banana/tsdf/textured/textured.xml"/> -->
-  <!-- <include file="/home/cudagl/padova2ndvisit/ycb-tools/models/ycb/006_mustard_bottle/tsdf/textured/textured.xml"/> -->
-  <!-- <include file="/home/cudagl/padova2ndvisit/ycb-tools/models/ycb/029_plate/tsdf/textured/textured.xml"/> -->
-  <!-- <include file="/home/cudagl/padova2ndvisit/ycb-tools/models/ycb/033_spatula/tsdf/textured/textured.xml"/> -->
-  <!-- <include file="/home/cudagl/padova2ndvisit/ycb-tools/models/ycb/035_power_drill/tsdf/textured/textured.xml"/> -->
-  <!-- <include file="/home/cudagl/padova2ndvisit/ycb-tools/models/ycb/048_hammer/tsdf/textured/textured.xml"/> -->
-  <!-- <include file="/home/cudagl/padova2ndvisit/ycb-tools/models/ycb/037_scissors/tsdf/textured/textured.xml"/> -->
-  <!-- <include file="/home/cudagl/padova2ndvisit/ycb-tools/models/ycb/042_adjustable_wrench/tsdf/textured/textured.xml"/> -->
-  <!-- <include file="/home/cudagl/padova2ndvisit/ycb-tools/models/ycb/058_golf_ball/tsdf/textured/textured.xml"/> -->
-  <include file="/home/cudagl/padova2ndvisit/ycb-tools/models/ycb/065-j_cups/tsdf/textured/textured.xml"/>
+  <!-- <include file="../../../models/ycb/011_banana/tsdf/textured/textured.xml"/> -->
+  <!-- <include file="../../../models/ycb/006_mustard_bottle/tsdf/textured/textured.xml"/> -->
+  <!-- <include file="../../../models/ycb/029_plate/tsdf/textured/textured.xml"/> -->
+  <!-- <include file="../../../models/ycb/033_spatula/tsdf/textured/textured.xml"/> -->
+  <!-- <include file="../../../models/ycb/035_power_drill/tsdf/textured/textured.xml"/> -->
+  <!-- <include file="../../../models/ycb/048_hammer/tsdf/textured/textured.xml"/> -->
+  <!-- <include file="../../../models/ycb/037_scissors/tsdf/textured/textured.xml"/> -->
+  <!-- <include file="../../../models/ycb/042_adjustable_wrench/tsdf/textured/textured.xml"/> -->
+  <!-- <include file="../../../models/ycb/058_golf_ball/tsdf/textured/textured.xml"/> -->
+  <include file="../../../models/ycb/065-j_cups/tsdf/textured/textured.xml"/>
   <!--  -->
   <statistic center="0.3 0 0.4" extent="1"/>
 
@@ -23,7 +23,7 @@
   <asset>
     <texture type="skybox" builtin="gradient" rgb1="0.3 0.5 0.7" rgb2="0 0 0" width="512" height="3072"/>
     <texture type="2d" name="groundplane" builtin="checker" mark="edge" rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3"
-      markrgb="0.8 0.8 0.8" width="300" height="300"/>
+             markrgb="0.8 0.8 0.8" width="300" height="300"/>
     <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="5 5" reflectance="0.2"/>
 
     <texture name='cube_surface' file="./assets/texture/iris_block.png" gridsize="3 4" gridlayout=".U..LFRB.D.."/>
@@ -37,7 +37,7 @@
       <geom name="floor" size="0 0 0.05" type="plane" material="groundplane"/>
     </body>
 
-    <body name="table" pos="0 0 0.1" >
+    <body name="table" pos="0 0 0.1">
       <geom name="table" size="0.1 0.1 0.1" type="box" rgba="1 1 1 0.3" friction="0.001 0.005 0.0001"/>
     </body>
 
@@ -65,7 +65,7 @@
 
   <keyframe>
     <key name="home" qpos="0 0 0 -1.57079 0 1.57079 -0.7853       0.04 0.04       0 0 0.196   1 0 0 0"
-    ctrl="0 0 0 -1.57079 0 1.57079 -0.7853 0.04"/>
+         ctrl="0 0 0 -1.57079 0 1.57079 -0.7853 0.04"/>
   </keyframe>
 
 </mujoco>

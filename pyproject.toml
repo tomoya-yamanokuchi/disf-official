@@ -1,0 +1,103 @@
+[build-system]
+requires = ["flit_core >=2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "disf"
+version = "0.1.0"
+readme = "README.md"
+license = {text = "MIT License"}
+authors = [
+    {name = "Tomoya Yamanokuchi"},
+]
+requires-python = ">=3.11"
+dynamic = ["description"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Framework :: Robot Framework :: Library",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering",
+]
+dependencies = [
+    "tqdm",
+    "ipdb",
+    "attrdict",
+    "natsort",
+    "hydra-core==1.2.0",
+    "imageio",
+    "scipy",
+    "print_color",
+    "imageio[ffmpeg]",
+    "numpy",
+    "opencv-python",
+    "matplotlib",
+    "cma",
+    "open3d",
+    "shapely",
+    "trimesh",
+    "lxml",
+    "termcolor",
+    # MuJoCo
+    "mujoco",
+]
+keywords = ["mujoco", "robotics", "control", "geometric control", "kinematics", "manipulation"]
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "mypy",
+    "ruff",
+]
+all = [
+    "disf[dev]",
+]
+
+[project.urls]
+Source = "https://github.com/tomoya-yamanokuchi/disf-official"
+Tracker = "https://github.com/tomoya-yamanokuchi/disf-official/issues"
+Homepage = ""
+Documentation = ""
+
+[tool.flit.module]
+name = "disf"
+
+[tool.ruff]
+lint.select = [
+    "E",  # pycodestyle errors.
+    "F",  # Pyflakes rules.
+    "PLC",  # Pylint convention warnings.
+    "PLE",  # Pylint errors.
+    "PLR",  # Pylint refactor recommendations.
+    "PLW",  # Pylint warnings.
+    "I"  # Import sorting.
+]
+lint.ignore = [
+    "E741", # Ambiguous variable name. (l, O, or I)
+    "E501",  # Line too long.
+    "PLR2004",  # Magic value used in comparison.
+    "PLR0915",  # Too many statements.
+    "PLR0913",  # Too many arguments.
+    "PLC0414",  # Import alias does not rename variable. (this is used for exporting names)
+    "PLC1901",  # Use falsey strings.
+    "PLR5501",  # Use `elif` instead of `else if`.
+    "PLR0911",  # Too many return statements.
+    "PLR0912",  # Too many branches.
+    "PLW0603",  # Global statement updates are discouraged.
+    "PLW2901"  # For loop variable overwritten.
+]
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+warn_unused_configs = true
+exclude = [""]
+
+omit = [
+    "*exceptions.py",
+    "*/contrib/*",
+]

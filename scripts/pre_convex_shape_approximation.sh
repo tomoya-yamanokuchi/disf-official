@@ -17,7 +17,7 @@ objects=(
 # 各オブジェクトに対して `obj2mjcf` を実行
 for obj in "${objects[@]}"; do
     echo "Processing $obj..."
-    obj2mjcf --obj-dir ~/disf/models/ycb/"$obj"/tsdf --save-mjcf --decompose --add-free-joint --coacd-args.preprocess-resolution 50
+    obj2mjcf --obj-dir ../models/ycb/"$obj"/tsdf --save-mjcf --decompose --add-free-joint --coacd-args.preprocess-resolution 50
 done
 
 echo "All objects processed."
