@@ -1,5 +1,6 @@
-from mujoco_grasping import ISFMujocoGraspingYCBObjectEvaluation
-from service import generate_object_name_list
+from disf.mujoco_grasping import ISFMujocoGraspingYCBObjectEvaluation
+from disf.service import generate_object_name_list
+
 
 def run(object_name_list):
     grasp = ISFMujocoGraspingYCBObjectEvaluation()
@@ -7,6 +8,5 @@ def run(object_name_list):
 
 
 if __name__ == '__main__':
-
     # ----
     run(object_name_list=generate_object_name_list())
